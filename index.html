@@ -24,7 +24,14 @@
         body.theme-sunset {
             --bg-gradient: linear-gradient(135deg, #1c1917 0%, #291515 50%, #451a03 100%);
             --accent-color: #f97316;
+        }        function setFont(fontType) {
+            if(fontType === 'mono') {
+                document.body.style.fontFamily = 'monospace';
+            } else {
+                document.body.style.fontFamily = 'sans-serif';
+            }
         }
+
         body.theme-emerald {
             --bg-gradient: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022f23 100%);
             --accent-color: #34d399;
@@ -261,7 +268,21 @@
             if (themeName === 'cyber') document.body.classList.add('theme-cyber');
             if (themeName === 'sunset') document.body.classList.add('theme-sunset');
             if (themeName === 'emerald') document.body.classList.add('theme-emerald');
+        }        function setTheme(themeName) {
+            document.body.className = '';
+            if (themeName === 'cyber') document.body.classList.add('cyber-theme');
+            if (themeName === 'sunset') document.body.classList.add('sunset-theme');
+            if (themeName === 'emerald') document.body.classList.add('emerald-theme');
         }
+
+        function setFont(fontType) {
+            if(fontType === 'mono') {
+                document.body.style.fontFamily = 'monospace';
+            } else {
+                document.body.style.fontFamily = 'sans-serif';
+            }
+        }
+
     </script>
 </body>
 </html>
