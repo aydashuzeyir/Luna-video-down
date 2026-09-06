@@ -1,46 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna - Ultimate Downloader</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Luna Video Down</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Rubik:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-    :root {
-    --bg-gradient: linear-gradient(135deg, #09090b 0%, #18181b 100%);
-    --card-bg: rgba(24, 34, 27, 0.75);
-    --accent-color: #c084fc;
-    --text-color: #ffffff;
-    --text-secondary: #a1a1aa;
-    --border-color: rgba(255, 255, 255, 0.08);
-    --font-family: 'Plus Jakarta Sans', sans-serif;
-}
+            --bg-gradient: linear-gradient(135deg, #09090b 0%, #18181b 100%);
+            --card-bg: rgba(24, 34, 27, 0.75);
+            --accent-color: #ec4899;
+            --text-color: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
-body.theme-cyber {
-    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
-    --accent-color: #ec4899;
-}
+        body.theme-cyber {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --accent-color: #ec4899;
+        }
+        body.theme-sunset {
+            --bg-gradient: linear-gradient(135deg, #1c1917 0%, #291515 50%, #451a03 100%);
+            --accent-color: #f97316;
+        }
+        body.theme-emerald {
+            --bg-gradient: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #022c22 100%);
+            --accent-color: #10b981;
+        }
+        body.theme-ocean {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #082f49 100%);
+            --accent-color: #38bdf8;
+        }
+        body.theme-purple {
+            --bg-gradient: linear-gradient(135deg, #2e1065 0%, #581c87 50%, #3b0764 100%);
+            --accent-color: #c084fc;
+        }
+        body.theme-crimson {
+            --bg-gradient: linear-gradient(135deg, #450a0a 0%, #7f1d1d 50%, #2b0b0b 100%);
+            --accent-color: #f87171;
+        }
 
-body.theme-sunset {
-    --bg-gradient: linear-gradient(135deg, #1c1917 0%, #291515 50%, #451a03 100%);
-    --accent-color: #f97316;
-}
+        body.font-jakarta { --font-family: 'Plus Jakarta Sans', sans-serif; }
+        body.font-poppins { --font-family: 'Poppins', sans-serif; }
+        body.font-inter { --font-family: 'Inter', sans-serif; }
+        body.font-rubik { --font-family: 'Rubik', sans-serif; }
+        body.font-mono { --font-family: 'JetBrains Mono', monospace; }
 
-body.theme-emerald {
-    --bg-gradient: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #022c22 100%);
-    --accent-color: #10b981;
-}
-
-            
-
-
-
-
-      
-
-
-        
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -60,59 +68,66 @@ body.theme-emerald {
 
         header {
             text-align: center;
-            margin-bottom: 20px;
-            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-top: 10px;
         }
 
         header h1 {
             color: var(--accent-color);
-            font-size: 34px;
+            font-size: 30px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
         }
 
         header p {
             color: var(--text-secondary);
             font-size: 13px;
+            margin-top: 4px;
         }
 
-        /* Fon / Tema Seçici Paneli */
-        .theme-panel {
+        .settings-panel {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 12px 15px;
+            padding: 14px;
             margin-bottom: 20px;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            gap: 12px;
             font-size: 13px;
-            color: var(--text-secondary);
         }
 
-        .theme-options {
+        .setting-group label {
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            font-size: 12px;
+        }
+
+        .options-grid {
             display: flex;
-            gap: 8px;
+            gap: 6px;
+            flex-wrap: wrap;
         }
 
         .t-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            padding: 5px 12px;
+            padding: 5px 10px;
             border-radius: 8px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 11px;
             transition: 0.2s;
         }
 
-        .t-btn:hover {
+        .t-btn:hover, .t-btn.active {
             border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Axtarış Sətri (Google & Link dəstəkli) */
         .search-container {
             display: flex;
             background: var(--card-bg);
@@ -120,15 +135,16 @@ body.theme-emerald {
             border-radius: 16px;
             padding: 8px 14px;
             border: 1px solid var(--border-color);
-            margin-bottom: 22px;
+            margin-bottom: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            align-items: center;
         }
 
         .search-container input {
             background: transparent;
             border: none;
             color: var(--text-color);
-            font-size: 15px;
+            font-size: 13px;
             width: 100%;
             outline: none;
         }
@@ -141,23 +157,76 @@ body.theme-emerald {
             border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 13px;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .search-container button:hover {
+            opacity: 0.9;
+        }
+
+        /* Video və Endirmə Nəticə Paneli */
+        .download-result-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .download-result-card.active {
+            display: block;
+        }
+
+        .result-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .download-options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .download-opt-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 10px 14px;
+            border-radius: 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
             transition: 0.2s;
         }
 
+        .download-opt-btn:hover {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.12);
+        }
+
         .section-title {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-secondary);
             margin-bottom: 12px;
             font-weight: 500;
         }
 
-        /* Platforma İkonları Şbəkəsi */
         .social-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .social-icon {
@@ -166,14 +235,13 @@ body.theme-emerald {
             border: 1px solid var(--border-color);
             border-radius: 14px;
             padding: 14px;
-            text-align: center;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 13px;
+            font-weight: 500;
             transition: all 0.2s ease;
         }
 
@@ -183,101 +251,151 @@ body.theme-emerald {
         }
 
         .social-icon span {
-            font-size: 20px;
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            font-size: 15px;
         }
 
-        /* Xüsusi İkon Rəngləri */
-        .icon-google { background: rgba(66, 133, 244, 0.15); color: #4285f4; }
-        .icon-spotify { background: rgba(29, 185, 84, 0.15); color: #1db954; }
-        .icon-fb { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
-        .icon-x { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
-        .icon-pin { background: rgba(189, 8, 28, 0.15); color: #bd081c; }
-        .icon-daily { background: rgba(0, 99, 227, 0.15); color: #0063e3; }
+        .ic-google { background: rgba(66, 133, 244, 0.15); color: #4285f4; }
+        .ic-spotify { background: rgba(29, 185, 84, 0.15); color: #1db954; }
+        .ic-fb { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
+        .ic-x { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
+        .ic-pinterest { background: rgba(189, 8, 28, 0.15); color: #bd081c; }
+        .ic-insta { background: rgba(225, 48, 108, 0.15); color: #e1306c; }
+        .ic-threads { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
 
-        /* Məlumat Paneli */
-        .content-area {
+        .info-card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 22px;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px;
             text-align: center;
-            border: 1px dashed var(--border-color);
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             color: var(--text-secondary);
-            font-size: 13px;
+            font-size: 12px;
+            line-height: 1.5;
         }
     </style>
 </head>
-<body class="theme-cyber">
+<body class="theme-cyber font-jakarta">
 
     <header>
-        <h1>Luna</h1>
+        <h1>Luna Video Down</h1>
         <p>Media & Music Downloader</p>
     </header>
- 
-                          <div class="theme-panel">
-            <div>
-                <span>Fon Teması:</span>
-                <div class="theme-options">
-                    <button class="t-btn" onclick="setTheme('cyber')">Neon</button>
-                    <button class="t-btn" onclick="setTheme('sunset')">Sunset</button>
-                    <button class="t-btn" onclick="setTheme('emerald')">Emerald</button>
-                </div>
-            </div>
-            
-            <div style="margin-top: 10px;">
-                <span>Şrift:</span>
-                <div class="theme-options">
-                    <button class="t-btn" onclick="setFont('sans')">Sans</button>
-                    <button class="t-btn" onclick="setFont('mono')">Mono</button>
-                </div>
+
+    <div class="settings-panel">
+        <div class="setting-group">
+            <label>Fon Temaları:</label>
+            <div class="options-grid" id="themeOptions">
+                <button class="t-btn active" onclick="setTheme('cyber', this)">Neon</button>
+                <button class="t-btn" onclick="setTheme('sunset', this)">Sunset</button>
+                <button class="t-btn" onclick="setTheme('emerald', this)">Emerald</button>
+                <button class="t-btn" onclick="setTheme('ocean', this)">Ocean</button>
+                <button class="t-btn" onclick="setTheme('purple', this)">Purple</button>
+                <button class="t-btn" onclick="setTheme('crimson', this)">Crimson</button>
             </div>
         </div>
 
-        
-        
+        <div class="setting-group" style="border-top: 1px solid var(--border-color); padding-top: 10px;">
+            <label>Yazı Fontları:</label>
+            <div class="options-grid" id="fontOptions">
+                <button class="t-btn active" onclick="setFont('jakarta', this)">Jakarta</button>
+                <button class="t-btn" onclick="setFont('poppins', this)">Poppins</button>
+                <button class="t-btn" onclick="setFont('inter', this)">Inter</button>
+                <button class="t-btn" onclick="setFont('rubik', this)">Rubik</button>
+                <button class="t-btn" onclick="setFont('mono', this)">Mono</button>
+            </div>
+        </div>
+    </div>
 
-     <script>
-    function setTheme(themeName) {
-        document.body.className = '';
-        if (themeName === 'cyber') document.body.classList.add('theme-cyber');
-        if (themeName === 'sunset') document.body.classList.add('theme-sunset');
-        if (themeName === 'emerald') document.body.classList.add('theme-emerald');
-    }
+    <div class="search-container">
+        <input type="text" id="urlInput" placeholder="Google-da mahnı axtar və ya link yapışdır...">
+        <button onclick="handleDownload()">Endir</button>
+    </div>
 
-    function setFont(fontType) {
-        if (fontType === 'mono') {
-            document.body.style.fontFamily = 'monospace';
-        } else {
-            document.body.style.fontFamily = 'sans-serif';
+    <div class="download-result-card" id="resultCard">
+        <div class="result-title">Endirmə Seçimləri:</div>
+        <div class="download-options-list" id="resultList">
+            </div>
+    </div>
+
+    <div class="section-title">Dəstəklənən Mənbələr</div>
+    <div class="social-grid">
+        <a href="https://www.google.com" target="_blank" class="social-icon">
+            <span class="ic-google">🌐</span> Google Axtarış
+        </a>
+        <a href="https://open.spotify.com" target="_blank" class="social-icon">
+            <span class="ic-spotify">🎵</span> Spotify Musiqi
+        </a>
+        <a href="https://www.facebook.com" target="_blank" class="social-icon">
+            <span class="ic-fb">👥</span> Facebook
+        </a>
+        <a href="https://twitter.com" target="_blank" class="social-icon">
+            <span class="ic-x">✖</span> X (Twitter)
+        </a>
+        <a href="https://www.pinterest.com" target="_blank" class="social-icon">
+            <span class="ic-pinterest">📌</span> Pinterest
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon">
+            <span class="ic-insta">📸</span> Instagram
+        </a>
+        <a href="https://www.threads.net" target="_blank" class="social-icon">
+            <span class="ic-threads">🧵</span> Threads
+        </a>
+    </div>
+
+    <div class="info-card">
+        İstədiyiniz musiqini və ya videonu tapmaq üçün Google üzərindən axtarın və ya link daxil edin.
+    </div>
+
+    <script>
+        function setTheme(themeName, btn) {
+            document.body.classList.remove('theme-cyber', 'theme-sunset', 'theme-emerald', 'theme-ocean', 'theme-purple', 'theme-crimson');
+            document.body.classList.add('theme-' + themeName);
+            document.querySelectorAll('#themeOptions .t-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
         }
-    }
-</script>
-          
 
+        function setFont(fontName, btn) {
+            document.body.classList.remove('font-jakarta', 'font-poppins', 'font-inter', 'font-rubik', 'font-mono');
+            document.body.classList.add('font-' + fontName);
+            document.querySelectorAll('#fontOptions .t-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
 
-    
+        function handleDownload() {
+            const val = document.getElementById('urlInput').value.trim();
+            const resultCard = document.getElementById('resultCard');
+            const resultList = document.getElementById('resultList');
 
+            if(!val) {
+                window.open('https://www.google.com', '_blank');
+                return;
+            }
 
-            
-    
-        
-
-
-            
-    
-
-
-    
-        
-        
+            if(val.startsWith('http')) {
+                // Link daxil edildikdə endirmə paneli göstər
+                resultCard.classList.add('active');
+                resultList.innerHTML = `
+                    <a href="${val}" target="_blank" class="download-opt-btn">
+                        <span>📥 Videonu/Faylı Birbaşa Aç & Endir</span>
+                        <span>➔</span>
+                    </a>
+                    <a href="https://www.google.com/search?q=${encodeURIComponent(val)}" target="_blank" class="download-opt-btn">
+                        <span>🔍 Google-da Axtar</span>
+                        <span>➔</span>
+                    </a>
+                `;
+            } else {
+                // Mətn daxil edildikdə Google axtarışı aç
+                window.open('https://www.google.com/search?q=' + encodeURIComponent(val), '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
