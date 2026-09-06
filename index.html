@@ -3,140 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luna Video Downloader</title>
+    <title>Luna - Ultimate Downloader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #09090b 0%, #18181b 100%);
+            --card-bg: rgba(24, 24, 27, 0.75);
+            --accent-color: #c084fc;
+            --text-color: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Cəlbedici Fon Temaları */
+        body.theme-cyber {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --accent-color: #ec4899;
+        }
+        body.theme-sunset {
+            --bg-gradient: linear-gradient(135deg, #1c1917 0%, #291515 50%, #451a03 100%);
+            --accent-color: #f97316;
+        }
+        body.theme-emerald {
+            --bg-gradient: linear-gradient(135deg, #022c22 0%, #064e3b 50%, #022f23 100%);
+            --accent-color: #34d399;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-family);
         }
+
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background: var(--bg-gradient);
+            background-attachment: fixed;
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
             padding: 20px;
+            transition: 0.4s ease;
         }
+
         header {
             text-align: center;
-            margin-bottom: 30px;
-            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-top: 15px;
         }
+
         header h1 {
-            color: #a855f7;
-            font-size: 28px;
-            margin-bottom: 5px;
+            color: var(--accent-color);
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
         }
+
         header p {
-            color: #888;
-            font-size: 14px;
+            color: var(--text-secondary);
+            font-size: 13px;
         }
+
+        /* Fon / Tema Seçici Paneli */
+        .theme-panel {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .theme-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .t-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 5px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .t-btn:hover {
+            border-color: var(--accent-color);
+        }
+
+        /* Axtarış Sətri (Google & Link dəstəkli) */
         .search-container {
             display: flex;
-            background-color: #1e1e1e;
-            border-radius: 12px;
-            padding: 10px 15px;
-            border: 1px solid #333;
-            margin-bottom: 25px;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 8px 14px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
+
         .search-container input {
             background: transparent;
             border: none;
-            color: #fff;
-            font-size: 16px;
+            color: var(--text-color);
+            font-size: 15px;
             width: 100%;
             outline: none;
         }
+
         .search-container button {
-            background-color: #a855f7;
+            background: var(--accent-color);
             border: none;
             color: #fff;
-            padding: 8px 15px;
-            border-radius: 8px;
+            padding: 10px 20px;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: bold;
-        }
-        .section-title {
-            font-size: 16px;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-        .social-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-        .social-icon {
-            background-color: #1e1e1e;
-            border: 1px solid #2a2a2a;
-            border-radius: 14px;
-            padding: 15px 0;
-            text-align: center;
-            color: #fff;
-            text-decoration: none;
-            font-size: 13px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
             transition: 0.2s;
         }
-        .social-icon:active {
-            background-color: #a855f7;
+
+        .section-title {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 500;
         }
+
+        /* Platforma İkonları Şbəkəsi */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 14px;
+            text-align: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
         .social-icon span {
             font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
         }
+
+        /* Xüsusi İkon Rəngləri */
+        .icon-google { background: rgba(66, 133, 244, 0.15); color: #4285f4; }
+        .icon-spotify { background: rgba(29, 185, 84, 0.15); color: #1db954; }
+        .icon-fb { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
+        .icon-x { background: rgba(255, 255, 255, 0.1); color: #ffffff; }
+        .icon-pin { background: rgba(189, 8, 28, 0.15); color: #bd081c; }
+        .icon-daily { background: rgba(0, 99, 227, 0.15); color: #0063e3; }
+
+        /* Məlumat Paneli */
         .content-area {
-            background-color: #1e1e1e;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
             border-radius: 16px;
-            padding: 20px;
+            padding: 22px;
             text-align: center;
-            border: 1px dashed #333;
+            border: 1px dashed var(--border-color);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #666;
+            color: var(--text-secondary);
+            font-size: 13px;
         }
     </style>
 </head>
-<body>
+<body class="theme-cyber">
 
     <header>
         <h1>Luna</h1>
-        <p>Video Downloader</p>
+        <p>Media & Music Downloader</p>
     </header>
 
-    <div class="search-container">
-        <input type="text" placeholder="URL daxil edin və ya axtarın...">
-        <button>Yüklə</button>
+    <div class="theme-panel">
+        <span>Fon Teması:</span>
+        <div class="theme-options">
+            <button class="t-btn" onclick="setTheme('cyber')">Neon</button>
+            <button class="t-btn" onclick="setTheme('sunset')">Sunset</button>
+            <button class="t-btn" onclick="setTheme('emerald')">Emerald</button>
+        </div>
     </div>
 
-    <div class="section-title">Sürətli Keçidlər</div>
+    <div class="search-container">
+        <input type="text" placeholder="Google-da mahnı axtar və ya link yapışdır...">
+        <button>Endir</button>
+    </div>
+
+    <div class="section-title">Dəstəklənən Mənbələr</div>
     <div class="social-grid">
-        <a href="https://instagram.com" target="_blank" class="social-icon">
-            <span>📷</span> Instagram
+        <a href="#" class="social-icon">
+            <span class="icon-google">🌐</span> Google Axtarış
         </a>
-        <a href="https://tiktok.com" target="_blank" class="social-icon">
-            <span>🎵</span> TikTok
+        <a href="#" class="social-icon">
+            <span class="icon-spotify">🟢</span> Spotify Musiqi
         </a>
-        <a href="https://youtube.com" target="_blank" class="social-icon">
-            <span>▶️</span> YouTube
+        <a href="#" class="social-icon">
+            <span class="icon-fb">📘</span> Facebook
         </a>
-        <a href="https://facebook.com" target="_blank" class="social-icon">
-            <span>📘</span> Facebook
+        <a href="#" class="social-icon">
+            <span class="icon-x">✖</span> X (Twitter)
+        </a>
+        <a href="#" class="social-icon">
+            <span class="icon-pin">📌</span> Pinterest
+        </a>
+        <a href="#" class="social-icon">
+            <span class="icon-daily">▶</span> Dailymotion
         </a>
     </div>
 
     <div class="content-area">
-        <p>Yükləmək üçün istədiyiniz linki yuxarıdakı sətrə yazın.</p>
+        <p>İstədiyiniz musiqini və ya videonu tapmaq üçün Google üzərindən axtarın və ya link daxil edin.</p>
     </div>
 
+    <script>
+        function setTheme(themeName) {
+            document.body.className = '';
+            if (themeName === 'cyber') document.body.classList.add('theme-cyber');
+            if (themeName === 'sunset') document.body.classList.add('theme-sunset');
+            if (themeName === 'emerald') document.body.classList.add('theme-emerald');
+        }
+    </script>
 </body>
 </html>
-
