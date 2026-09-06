@@ -263,26 +263,18 @@
     </div>
 
     <script>
-        function setTheme(themeName) {
-            document.body.className = '';
-            if (themeName === 'cyber') document.body.classList.add('theme-cyber');
-            if (themeName === 'sunset') document.body.classList.add('theme-sunset');
-            if (themeName === 'emerald') document.body.classList.add('theme-emerald');
-        }        function setTheme(themeName) {
-            document.body.className = '';
-            if (themeName === 'cyber') document.body.classList.add('cyber-theme');
-            if (themeName === 'sunset') document.body.classList.add('sunset-theme');
-            if (themeName === 'emerald') document.body.classList.add('emerald-theme');
-        }
+    function setTheme(themeName) {
+        document.body.className = '';
+        if (themeName === 'cyber') document.body.classList.add('theme-cyber');
+        if (themeName === 'sunset') document.body.classList.add('theme-sunset');
+        if (themeName === 'emerald') document.body.classList.add('theme-emerald');
+    }
 
-        function setFont(fontType) {
-            if(fontType === 'mono') {
-                document.body.style.fontFamily = 'monospace';
-            } else {
-                document.body.style.fontFamily = 'sans-serif';
-            }
+    function setFont(fontType) {
+        if (fontType === 'mono') {
+            document.body.style.fontFamily = 'monospace';
+        } else {
+            document.body.style.fontFamily = 'sans-serif';
         }
-
-    </script>
-</body>
-</html>
+    
+</script>
