@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna Video Downloader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+        header h1 {
+            color: #a855f7;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        header p {
+            color: #888;
+            font-size: 14px;
+        }
+        .search-container {
+            display: flex;
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 10px 15px;
+            border: 1px solid #333;
+            margin-bottom: 25px;
+        }
+        .search-container input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            width: 100%;
+            outline: none;
+        }
+        .search-container button {
+            background-color: #a855f7;
+            border: none;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .section-title {
+            font-size: 16px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .social-icon {
+            background-color: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 14px;
+            padding: 15px 0;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+        .social-icon:active {
+            background-color: #a855f7;
+        }
+        .social-icon span {
+            font-size: 20px;
+        }
+        .content-area {
+            background-color: #1e1e1e;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px dashed #333;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Luna</h1>
+        <p>Video Downloader</p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" placeholder="URL daxil edin və ya axtarın...">
+        <button>Yüklə</button>
+    </div>
+
+    <div class="section-title">Sürətli Keçidlər</div>
+    <div class="social-grid">
+        <a href="https://instagram.com" target="_blank" class="social-icon">
+            <span>📷</span> Instagram
+        </a>
+        <a href="https://tiktok.com" target="_blank" class="social-icon">
+            <span>🎵</span> TikTok
+        </a>
+        <a href="https://youtube.com" target="_blank" class="social-icon">
+            <span>▶️</span> YouTube
+        </a>
+        <a href="https://facebook.com" target="_blank" class="social-icon">
+            <span>📘</span> Facebook
+        </a>
+    </div>
+
+    <div class="content-area">
+        <p>Yükləmək üçün istədiyiniz linki yuxarıdakı sətrə yazın.</p>
+    </div>
+
+</body>
+</html>
 
